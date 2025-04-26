@@ -9,7 +9,6 @@ import amazing_utils as utils
 import argparse
 import assets as assets
 
-
 @dataclass
 class Point:
     x: float
@@ -95,7 +94,7 @@ def run_simulation( human, initial_ball_position = init_position):
     else:
         p.connect(p.DIRECT)
     p.setAdditionalSearchPath("assets")
-    plate = p.loadURDF("$HOME/workspace/balance-ball/py/env/assets/plate.urdf")
+    plate = p.loadURDF("/Users/rithvikdoshi/workspace/balance-ball/py/env/assets/plate.urdf")
     #zoom to the plate
     p.resetDebugVisualizerCamera(cameraDistance=1.0, cameraYaw=0, cameraPitch=-45, cameraTargetPosition=[0,0,0])
 
