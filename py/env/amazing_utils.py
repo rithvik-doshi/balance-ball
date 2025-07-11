@@ -14,25 +14,17 @@ def loop_every(interval: float, callback: Callable[[int, float], None]):
     2. The time elsapsed since the first call.
     and the time since the first call.
     """
-    #WINDOWS DON'T HAVE SIGLRM SO I MODIFIED THIS CODE!
 
-    # def handler(signum, frame):
-    #     global i, start_time
-    #     if i == 0:
-    #         start_time = time.time()
-    #     elapsed_time = time.time() - start_time
-    #     callback(i, elapsed_time)
-    #     i += 1
-
-    # signal.signal(signal.SIGLRM, handler) 
-    # signal.setitimer(signal.ITIMER_REAL, interval, interval)
     global i
     global start_time
     while True:
         elapsed_time = time.time() - start_time
         if elapsed_time > i * interval:
-            callback(i, elapsed_time)
+            oob, endless = callback(i, elapsed_time)
             i += 1
+            if oob and endless:
+                break
+    print("here")
 
 
 

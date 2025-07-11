@@ -27,7 +27,7 @@ class World:
 class AmazingEnv(gym.Env):
     metadata = {
         "render_modes": ["human", "rgb_array"],
-        "render_fps": 30,
+        "render_fps": 60,
     }
 
     def __init__(self, g, human=False):
